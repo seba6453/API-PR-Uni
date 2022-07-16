@@ -6,6 +6,10 @@ app = Flask(__name__)
 
 CORS(app)
 
+@app.route('/')
+def index():
+    return {"respuesta":True}
+
 # GET, POST, PUT, DELETE
 @app.route('/<usuario>',methods=['GET'])
 def indexGet(usuario):
