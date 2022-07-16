@@ -9,4 +9,4 @@ Flask-Cors==3.0.10
 numpy==1.23.1
 pandas==1.4.3
 pip==21.1.1
-psycopg2==2.9.2
+psycopg3==3.0.15
