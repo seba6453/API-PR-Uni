@@ -1,29 +1,18 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 import os
+from cargaDBscotiabank import cargaScotiabank
 
 app = Flask(__name__)
 
 CORS(app)
 
-@app.route('/')
-def index():
-    return {"respuesta":True}
-
-# GET, POST, PUT, DELETE
-@app.route('/<usuario>',methods=['GET'])
-def indexGet(usuario):
-    return 'hola ' + usuario
-
-@app.route('/<usuario>',methods=['POST'])
-def indexPost(usuario):
-    return 'hola '
 
 @cross_origin
 @app.route('/File', methods=['POST','OPTIONS'])
 def file():
-    print(request.data)
-    return {"respuesta":"Archivo cargado"}
+    confirmacion = cargaScotiabank(rut='20168189-8',datos=request.data.decode('utf8'),nroCuenta=111)
+    return {"respuesta":True}
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
