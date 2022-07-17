@@ -8,4 +8,5 @@ Werkzeug==1.0.1
 Flask-Cors==3.0.10
 numpy==1.23.1
 pandas==1.4.3
+pip==22.1.2
 psycopg2
