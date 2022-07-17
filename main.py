@@ -9,6 +9,11 @@ CORS(app)
 
 
 @cross_origin
+@app.route('/', methods=['GET'])
+def index():
+    return "hola"
+
+@cross_origin
 @app.route('/File', methods=['POST','OPTIONS'])
 def file():
     confirmacion = cargaScotiabank(rut='20168189-8',datos=request.data.decode('utf8'),nroCuenta=111)
