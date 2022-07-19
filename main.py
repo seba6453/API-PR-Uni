@@ -19,7 +19,7 @@ def index():
 def file():
     datos = json.loads(request.data.decode('utf8'))
     confirmacion = cargaScotiabank(rut=datos["Rut"],datos=datos["InfText"],nroCuenta=111)
-    return {"respuesta":confirmacion}
+    return confirmacion
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
