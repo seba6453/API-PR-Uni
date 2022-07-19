@@ -16,7 +16,7 @@ def index():
 @cross_origin
 @app.route('/File', methods=['POST','OPTIONS'])
 def file():
-    confirmacion = cargaScotiabank(rut='20168189-8',datos=request.data.decode('utf8'),nroCuenta=111)
+    confirmacion = cargaScotiabank(rut=request.data[1].decode('utf8'),datos=request.data[0].decode('utf8'),nroCuenta=111)
     return {"respuesta":confirmacion}
 
 if __name__ == '__main__':
