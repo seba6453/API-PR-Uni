@@ -18,7 +18,7 @@ def index():
 @app.route('/File', methods=['POST','OPTIONS'])
 def file():
     datos = json.loads(request.data.decode('utf8'))
-    confirmacion = cargaScotiabank(rut=datos["Rut"],datos=datos["InfText"],nroCuenta=111)
+    confirmacion = cargaScotiabank(rut=datos["Rut"],datos=datos["InfText"],nroCuenta=datos["nroCuenta"])
     return {"respuesta":confirmacion}
 
 if __name__ == '__main__':
